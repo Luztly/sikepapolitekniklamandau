@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SIKEPA – Sistem Informasi Kegiatan & Kepanitiaan</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1f7a3a;--gd:#0f4d24;--y:#f2b705;--bg:#f4f7f3;--card:#fff;--tx:#17301f;--mu:#5d7064;--bd:#dfe8dd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1a13;--card:#17251c;--tx:#e8f2ea;--mu:#9bb0a1;--bd:#25382b}}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100%}
+button{font:inherit;cursor:pointer;border:0}
+.btn{padding:12px 22px;border-radius:999px;font-weight:700;background:var(--y);color:#1b2a10}
+.btn.o{background:transparent;color:#fff;border:2px solid #fff}
+.hero{min-height:100vh;background:linear-gradient(105deg,rgba(8,50,24,.9) 0%,rgba(8,50,24,.6) 45%,rgba(8,50,24,.15) 100%);color:#fff;display:flex;flex-direction:column;padding-top:72px}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top,0px)) 5vw 14px;gap:12px;transition:background .3s}nav.sc{background:var(--gd);box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px}
+.logo i{width:38px;height:38px;border-radius:10px;background:var(--y);display:grid;place-items:center;color:#1b2a10;font-style:normal}
+nav ul{display:flex;gap:6px;list-style:none;font-weight:600;font-size:14px}
+nav li a{color:#fff;text-decoration:none;padding:8px 14px;border-radius:999px;cursor:pointer;display:block}nav li a:hover{background:rgba(255,255,255,.18)}
+.hc{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 5vw 40px;max-width:760px}
+.tag{display:inline-block;background:rgba(242,183,5,.2);border:1px solid var(--y);color:var(--y);padding:6px 14px;border-radius:999px;font-size:12px;font-weight:700;width:fit-content;margin-bottom:18px}
+h1{font-size:clamp(32px,5.5vw,58px);line-height:1.1;font-weight:800}h1 span{color:var(--y)}
+.hc p{margin:18px 0 28px;font-size:17px;line-height:1.6;opacity:.92;max-width:560px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;padding:0 5vw 34px}
+.feat div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px;font-size:13px;cursor:pointer;transition:.2s}
+.feat div:hover{background:rgba(255,255,255,.25);transform:translateY(-3px)}.feat b{display:block;font-size:15px;margin:4px 0}
+.view{display:none}.view.on{display:block}
+.login{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(rgba(8,50,24,.85),rgba(8,50,24,.85)),url(bg.jpg) center/cover}
+.box{background:var(--card);border-radius:22px;padding:32px;width:100%;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.box small{color:var(--mu)}
+label{display:block;font-size:13px;font-weight:600;margin:16px 0 6px}
+input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font:inherit}textarea{min-height:90px}
+.box .btn{width:100%;margin-top:22px;background:var(--g);color:#fff}
+.link{background:none;color:var(--mu);margin-top:14px;width:100%;font-size:13px}
+.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+aside{background:var(--gd);color:#fff;padding:20px 14px;display:flex;flex-direction:column;gap:6px}
+aside .logo{margin:0 6px 20px;font-size:18px}
+aside button{background:none;color:#cfe6d5;text-align:left;padding:11px 14px;border-radius:12px;font-weight:600;font-size:14px}
+aside button.on{background:var(--y);color:#1b2a10}
+main{padding:24px 28px;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;gap:10px;flex-wrap:wrap}
+.top h2{font-size:24px}.who{font-size:13px;color:var(--mu)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:18px}
+.stat b{font-size:28px;display:block;color:var(--g)}.stat span{font-size:13px;color:var(--mu)}
+.card h3{font-size:16px;margin-bottom:14px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px;min-width:480px}
+th{text-align:left;color:var(--mu);font-size:12px;padding:8px;border-bottom:1px solid var(--bd)}td{padding:12px 8px;border-bottom:1px solid var(--bd)}
+.pill{padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#e3f4e7;color:#1f7a3a;white-space:nowrap}
+.pill.w{background:#fff3cc;color:#8a6500}.pill.p{background:#ece6fa;color:#5b3fb0}
+.bar{height:8px;background:var(--bd);border-radius:9px;overflow:hidden;min-width:90px}.bar i{display:block;height:100%;background:var(--g)}
+.g2{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+.item{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--bd);font-size:14px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.fg .f{grid-column:1/-1}
+.sm{padding:7px 14px;font-size:13px;background:var(--g);color:#fff;border-radius:999px;font-weight:700}.sm.r{background:#b4541a}.sm.x{background:transparent;color:#b3261e;border:1px solid #b3261e}
+.pri{background:var(--g);color:#fff;width:100%;margin-top:18px}
+.err{color:#b3261e;font-size:13px;margin-top:10px;min-height:16px}
+.hint{margin-top:12px;padding:12px;border-radius:12px;background:var(--bg);font-size:12px;color:var(--mu);line-height:1.7}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--gd);color:#fff;padding:12px 20px;border-radius:999px;font-size:14px;z-index:99}
+.vc{border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:12px}
+.note{font-size:12px;color:var(--mu);margin-top:4px}
+.sec{padding:70px 5vw 10px;max-width:1100px;margin:0 auto}.sec h2{font-size:28px;margin-bottom:6px}.sec>p{color:var(--mu);margin-bottom:24px}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.cg .card b{display:block;margin:6px 0 4px;color:var(--tx)}.cg .card{font-size:14px;color:var(--mu)}
+.cg .card.c{cursor:pointer;transition:.2s}.cg .card.c:hover{border-color:var(--g);transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.st{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--bd)}.st i{flex:none;width:32px;height:32px;border-radius:50%;background:var(--g);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:800}.st b{display:block}.st span{font-size:14px;color:var(--mu)}
+footer{margin-top:60px;padding:24px 5vw;background:var(--gd);color:#cfe6d5;font-size:13px;text-align:center}
+@media(max-width:800px){.app{grid-template-columns:1fr}aside{flex-direction:row;overflow-x:auto;padding:10px}aside .logo{display:none}aside button{white-space:nowrap}.g2,.fg{grid-template-columns:1fr}nav ul{order:3;width:100%;justify-content:center;font-size:13px}nav{flex-wrap:wrap}.hero{padding-top:110px}main{padding:18px}}
+.tabs{display:flex;gap:8px;justify-content:center;margin-bottom:22px}.tabs button{padding:10px 22px;border-radius:999px;background:var(--card);border:1px solid var(--bd);color:var(--tx);font-weight:700}.tabs button.on{background:var(--g);color:#fff;border-color:var(--g)}
+.vp{overflow:hidden;touch-action:pan-y}.trk{display:flex;transition:transform .55s cubic-bezier(.65,0,.25,1)}.sl{flex:0 0 100%;min-width:0;padding:4px}.sl>p{color:var(--mu);margin-bottom:24px}
+.nv{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:22px}.nv button{width:40px;height:40px;border-radius:50%;background:var(--g);color:#fff;font-size:20px}.dots{display:flex;gap:8px}.dots i{width:9px;height:9px;border-radius:50%;background:var(--bd);transition:.3s}.dots i.on{background:var(--g);width:24px}
+a.card{text-decoration:none;display:block}
+.vp{height:100dvh}.trk{height:100%}.sl.hero{height:100%;min-height:0;overflow-y:auto;padding:72px 0 0}.pg{height:100%;overflow-y:auto;padding:96px 5vw 90px}.pg>*{max-width:1100px;margin-left:auto;margin-right:auto}
+.nv{position:fixed;left:0;right:0;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9;margin:0;pointer-events:none}.nv>*{pointer-events:auto}.nv button{box-shadow:0 4px 14px rgba(0,0,0,.3)}.dots{background:rgba(0,0,0,.35);padding:8px 12px;border-radius:999px}.dots i{background:rgba(255,255,255,.5)}.dots i.on{background:var(--y)}
+nav li a.on{background:rgba(255,255,255,.22)}
+@media(max-width:800px){.sl.hero{padding-top:110px}.pg{padding-top:130px}}
+/* Foto gedung sebagai latar semua halaman utama (Beranda, Fitur, Panduan, Kontak) */
+.vp{background:#0f4d24 url(fotokampus.jpg.jpeg) center/cover no-repeat}
+.pg{background:linear-gradient(rgba(8,50,24,.72),rgba(8,50,24,.88)),transparent;color:#fff}
+.pg>h2{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.pg>p{color:rgba(255,255,255,.9)}
+.pg .card{box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.pg .kr{text-align:center;margin-top:50px;font-size:13px;color:#cfe6d5,}
+</style></head><body>
+
+<section class="view on" id="home">
+<nav><div class="logo"><i>S</i>SIKEPA</div>
+   <ul><li><a data-s="beranda">Beranda</a></li><li><a data-s="fitur">Fitur</a></li><li><a data-s="panduan">Panduan</a></li><li><a data-s="kontak">Kontak</a></li></ul>
+   <button class="btn" onclick="go('login')">Masuk</button></nav>
+<div class="vp"><div class="trk" id="trk"><div class="sl hero" id="beranda">
+  <div class="hc"><span class="tag">Politeknik Lamandau</span>
+   <h1>Kelola Kegiatan &amp; <span>Kepanitiaan</span> Lebih Terarah</h1>
+   <p>Sistem informasi berbasis web untuk mengajukan proposal, menyusun panitia, membagi tugas, memantau progres, dan membuat laporan kegiatan kampus dalam satu tempat.</p>
+   <div class="row"><button class="btn" onclick="go('login')">Mulai Sekarang</button><button class="btn o" data-s="fitur">Lihat Fitur</button></div></div>
+  <div class="feat">
+   <div data-s="fitur">📋<b>Kegiatan</b>Pengajuan &amp; verifikasi proposal</div>
+   <div data-s="fitur">👥<b>Kepanitiaan</b>Susunan panitia &amp; divisi</div>
+   <div data-s="panduan">✅<b>Tugas &amp; Jadwal</b>Pantau progres real-time</div>
+   <div data-s="panduan">💰<b>Anggaran &amp; LPJ</b>Dokumen dan laporan</div>
+  </div>
+ </div><div class="sl pg" id="fitur"><h2>Fitur Utama</h2><p>Klik fitur untuk mencoba — Anda akan diarahkan masuk ke sistem.</p><div class="cg"><div class="card c" onclick="go('login')">📝<b>Pengajuan Proposal</b>Ketua panitia mengajukan kegiatan beserta berkas proposal.</div><div class="card c" onclick="go('login')">🔎<b>Verifikasi</b>Pimpinan menyetujui atau meminta revisi lengkap dengan catatan.</div><div class="card c" onclick="go('login')">👥<b>Susunan Panitia</b>Atur jabatan dan divisi anggota untuk tiap kegiatan.</div><div class="card c" onclick="go('login')">✅<b>Tugas &amp; Progres</b>Bagi tugas, tetapkan tenggat, dan pantau perkembangannya.</div><div class="card c" onclick="go('login')">📅<b>Jadwal</b>Agenda kegiatan terkumpul rapi dan mudah dilihat.</div><div class="card c" onclick="go('login')">💰<b>Anggaran &amp; LPJ</b>Catat rincian dana dan unggah dokumen pertanggungjawaban.</div><div class="card c" onclick="go('login')">🔑<b>Daftar &amp; Akun Pengguna</b>Admin mengelola pengguna serta mengubah username dan sandi setiap peran.</div></div></div><div class="sl pg" id="panduan"><h2>Panduan Singkat</h2><p>Alur penggunaan sistem dari pengajuan sampai laporan.</p><div class="card"><div class="st"><i>1</i><div><b>Login &amp; ajukan proposal</b><span>Ketua panitia masuk, mengisi data kegiatan, dan mengajukan proposal.</span></div></div><div class="st"><i>2</i><div><b>Verifikasi proposal</b><span>Pimpinan memeriksa. Jika ditolak, ketua merevisi lalu mengajukan ulang.</span></div></div><div class="st"><i>3</i><div><b>Susun panitia &amp; bagi tugas</b><span>Setelah disetujui, ketua menyusun kepanitiaan dan membagi tugas.</span></div></div><div class="st"><i>4</i><div><b>Kerjakan &amp; perbarui progres</b><span>Anggota panitia mengerjakan tugas dan mengisi progres di sistem.</span></div></div><div class="st" style="border:0"><i>5</i><div><b>Laporan</b><span>Ketua memantau progres dan menyusun laporan, lalu pimpinan memverifikasinya.</span></div></div></div></div><div class="sl pg" id="kontak"><h2>Kontak</h2><p>Butuh bantuan akun atau kendala penggunaan? Hubungi Admin sistem.</p><div class="cg"><div class="card">🏫<b>Politeknik Lamandau</b>Kabupaten Lamandau, Kalimantan Tengah</div><a class="card c" href="mailto:leomh05@gmail.com" target="_blank">✉️<b>Email</b>leomh05@gmail.com</a><a class="card c" href="https://wa.me/6282250171003" target="_blank">📞<b>Telepon / WhatsApp</b>082250171003</a></div><div class="kr">© 2026 SIKEPA – Politeknik Lamandau</div></div></div></div><div class="nv"><button onclick="slide(cur-1)">‹</button><div class="dots"><i class="on"></i><i></i><i></i><i></i></div><button onclick="slide(cur+1)">›</button></div>
+</section>
+
+<section class="view" id="login">
+ <div class="login"><div class="box">
+  <div class="logo" style="color:var(--g);margin-bottom:14px"><i>S</i>SIKEPA</div>
+  <h2>Selamat datang</h2><small>Masuk untuk melanjutkan</small>
+  <label>Username</label><input id="un" placeholder="mis. ketua" autocomplete="off">
+  <label>Password</label><input id="pw" type="password" placeholder="••••••••">
+  <div class="err" id="err"></div>
+  <button class="btn" style="margin-top:8px" onclick="enter()">Masuk</button>
+  <div class="hint"><b>Masukan Username & Password Anda</b><br>Jika ada kendala seperti Lupa Username atau Password bisa bertanya pada Admin SIKEPA</br></div>
+  <button class="link" onclick="go('home')">← Kembali ke beranda</button>
+ </div></div>
+</section>
+
+<section class="view" id="dash">
+ <div class="app">
+  <aside><div class="logo"><i style="width:34px;height:34px;border-radius:9px">S</i>SIKEPA</div>
+   <button class="on" data-t="d">🏠 Dashboard</button><button data-t="k">📋 Kegiatan</button><button data-t="p">📝 Pengajuan Proposal</button><button data-t="v">🔎 Verifikasi</button><button data-t="s">👥 Susunan Panitia</button><button data-t="u">🔑 Daftar Pengguna</button><button data-t="q">🔐 Akun Pengguna</button><button data-t="t">✅ Tugas</button><button data-t="j">📅 Jadwal</button><button data-t="a">💰 Anggaran</button>
+   <button style="margin-top:auto" onclick="logout()">↩ Keluar</button></aside>
+  <main><div class="top"><h2 id="ttl">Dashboard</h2><div class="who" id="who"></div></div><div id="body"></div></main>
+ </div>
+</section>
+
+<script>
+const $=s=>document.querySelector(s);
+function go(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===id));scrollTo(0,0)}
+let cur=0;const SL={beranda:0,fitur:1,panduan:2,kontak:3};
+function slide(i){cur=(i+4)%4;$('#trk').style.transform=`translateX(-${cur*100}%)`;document.querySelectorAll('.trk>.sl').forEach((e,j)=>{if(j===cur)e.scrollTop=0});$('nav').classList.toggle('sc',cur>0);document.querySelectorAll('nav li a').forEach(a=>a.classList.toggle('on',SL[a.dataset.s]===cur));document.querySelectorAll('.dots i').forEach((d,j)=>d.classList.toggle('on',j===cur))}
+let tx=0;const vp=$('.vp');vp.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});vp.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)slide(cur+(d<0?1:-1))});
+document.addEventListener('click',e=>{const t=e.target.closest('[data-s]');if(t){e.preventDefault();slide(SL[t.dataset.s])}});
+addEventListener('scroll',()=>$('nav').classList.toggle('sc',scrollY>40));
+const R={'Admin':['d','k','s','u','q'],'Ketua Panitia':['d','k','p','s','t','j','a'],'Anggota Panitia':['d','t','j'],'Pimpinan / Pembina':['d','k','v']};
+let U=[{u:'admin',n:'Administrator',r:'Admin',p:'admin123',off:false},{u:'ketua',n:'Ketua',r:'Ketua Panitia',p:'ketua123',off:false},{u:'anggota',n:'Anggota',r:'Anggota Panitia',p:'anggota123',off:false},{u:'pimpinan',n:'Pimpinan',r:'Pimpinan / Pembina',p:'pimpinan123',off:false}];
+let K=[['Seminar Teknologi 2026','12 Nov 2026','Aula Kampus','Disetujui','',80,'','seminar.pdf'],['Dies Natalis Polam','20 Des 2026','Lapangan','Menunggu verifikasi','w',35,'',''],['Pelatihan Kewirausahaan','5 Jan 2027','Lab Komputer','Revisi','p',10,'Lengkapi rincian anggaran.','']];
+let P=[['Lukman Trinarno','Ketua Pelaksana','Inti'],['Arifa Oktalia','Sekretaris','Inti'],['Karina','Bendahara','Inti'],['Emelia Sonya Manu','Koordinator','Publikasi'],['Pajri Robet Silun','Anggota','Konsumsi']];
+try{const s=JSON.parse(localStorage.getItem('sikepa')||'null');if(s){U=s.U;K=s.K;P=s.P}}catch(e){}
+const sv=()=>{try{localStorage.setItem('sikepa',JSON.stringify({U,K,P}))}catch(e){}};
+let me=null,ed=-1;
+function toast(m){const e=document.createElement('div');e.className='toast';e.textContent=m;document.body.append(e);setTimeout(()=>e.remove(),2500)}
+function enter(){const un=$('#un').value.trim().toLowerCase(),a=U.find(x=>x.u===un&&x.p===$('#pw').value);
+ if(!a){$('#err').textContent='Username atau kata sandi salah.';return}
+ if(a.off){$('#err').textContent='Akun dinonaktifkan. Hubungi Admin.';return}
+ me=a;$('#err').textContent='';$('#pw').value='';who();
+ document.querySelectorAll('aside button[data-t]').forEach(b=>b.style.display=R[a.r].includes(b.dataset.t)?'':'none');go('dash');tab('d')}
+function who(){$('#who').textContent='👤 '+me.n+' · '+me.r}
+function logout(){me=null;ed=-1;go('home');slide(0)}
+const stc=s=>s==='Disetujui'?'':s==='Revisi'?'p':'w';
+const bar=p=>`<div class="bar"><i style="width:${p}%"></i></div>`;
+const T=[['Menyusun rundown acara','Sekretaris','28 Okt',70],['Konfirmasi pembicara','Humas','30 Okt',40],['Desain poster &amp; spanduk','Publikasi','2 Nov',90],['Pengadaan konsumsi','Konsumsi','8 Nov',15]];
+const J=[['12 Nov','Seminar Teknologi','08.00 – 15.00'],['20 Des','Dies Natalis','07.30 – 17.00'],['5 Jan','Pelatihan Kewirausahaan','09.00 – 14.00']];
+const A=[['Konsumsi','Rp 4.500.000','Operasional'],['Publikasi','Rp 1.200.000','Operasional'],['Honor pembicara','Rp 3.000.000','Kegiatan'],['Perlengkapan','Rp 2.300.000','Kegiatan']];
+const tbl=(h,rows)=>`<div class="tw"><table><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr>${rows}</table></div>`;
+const V={
+d:()=>`<div class="stats"><div class="card stat"><b>${K.length}</b><span>Kegiatan</span></div><div class="card stat"><b>${P.length}</b><span>Anggota panitia</span></div><div class="card stat"><b>${T.length}</b><span>Tugas berjalan</span></div><div class="card stat"><b>${K.filter(k=>k[3]==='Menunggu verifikasi').length}</b><span>Menunggu verifikasi</span></div></div>
+<div class="g2"><div class="card"><h3>Progres Kegiatan</h3>${tbl(['Kegiatan','Status','Progres'],K.map(k=>`<tr><td>${k[0]}</td><td><span class="pill ${k[4]}">${k[3]}</span></td><td>${bar(k[5])}</td></tr>`).join(''))}</div>
+<div class="card"><h3>Jadwal Terdekat</h3>${J.map(j=>`<div class="item"><b>${j[0]}</b><span>${j[1]}</span></div>`).join('')}</div></div>`,
+k:()=>`<div class="card"><h3>Daftar Kegiatan</h3>${tbl(['Nama','Tanggal','Lokasi','Status'],K.map(k=>`<tr><td>${k[0]}</td><td>${k[1]}</td><td>${k[2]}</td><td><span class="pill ${k[4]}">${k[3]}</span></td></tr>`).join(''))}</div>`,
+t:()=>`<div class="card"><h3>Tugas Panitia</h3>${tbl(['Tugas','Divisi','Tenggat','Progres'],T.map(t=>`<tr><td>${t[0]}</td><td>${t[1]}</td><td>${t[2]}</td><td>${bar(t[3])}</td></tr>`).join(''))}</div>`,
+j:()=>`<div class="card"><h3>Jadwal Kegiatan</h3>${J.map(j=>`<div class="item"><b>${j[0]}</b><span>${j[1]}</span><span>${j[2]}</span></div>`).join('')}</div>`,
+a:()=>`<div class="card"><h3>Rincian Anggaran</h3>${tbl(['Uraian','Jumlah','Jenis'],A.map(a=>`<tr><td>${a[0]}</td><td>${a[1]}</td><td>${a[2]}</td></tr>`).join(''))}</div>`,
+p:()=>`<div class="card"><h3>Form Pengajuan Proposal Kegiatan</h3><div class="fg">
+<div class="f"><label>Nama kegiatan</label><input id="pn" placeholder="mis. Seminar Teknologi 2027"></div>
+<div><label>Tanggal mulai</label><input id="pd" type="date"></div><div><label>Tanggal selesai</label><input type="date"></div>
+<div><label>Lokasi</label><input id="pl" placeholder="mis. Aula Kampus"></div><div><label>Total anggaran (Rp)</label><input type="number" placeholder="0"></div>
+<div class="f"><label>Deskripsi &amp; tujuan</label><textarea placeholder="Latar belakang dan tujuan kegiatan"></textarea></div>
+<div class="f"><label>Berkas proposal (PDF)</label><input id="pf" type="file" accept=".pdf"></div></div>
+<button class="btn pri" id="sp">Ajukan Proposal</button></div>
+<div class="card" style="margin-top:16px"><h3>Status Pengajuan Saya</h3>${K.map((k,i)=>`<div class="vc"><div class="item" style="border:0;padding:0"><b>${k[0]}</b><span class="pill ${k[4]}">${k[3]}</span></div><div class="note">${k[1]} · ${k[2]}${k[7]?' · 📎 '+k[7]:''}</div>${k[6]?`<div class="note">💬 Catatan pimpinan: ${k[6]}</div>`:''}${k[3]==='Revisi'?`<button class="sm" style="margin-top:10px" onclick="rs(${i})">↻ Ajukan ulang setelah revisi</button>`:''}</div>`).join('')}</div>`,
+v:()=>{const q=K.map((k,i)=>[k,i]).filter(x=>x[0][3]==='Menunggu verifikasi'),h=K.filter(k=>k[3]!=='Menunggu verifikasi');
+ return `<div class="card"><h3>Menunggu Verifikasi (${q.length})</h3>${q.length?q.map(([k,i])=>`<div class="vc"><b>${k[0]}</b><div class="who" style="margin:4px 0 10px">${k[1]} · ${k[2]}${k[7]?' · 📎 '+k[7]:''}</div><textarea id="c${i}" placeholder="Catatan verifikasi (wajib jika revisi)"></textarea><div class="row" style="margin-top:10px"><button class="sm" onclick="vf(${i},1)">✔ Setujui</button><button class="sm r" onclick="vf(${i},0)">↺ Minta revisi</button></div></div>`).join(''):'<p class="who">Tidak ada proposal yang menunggu.</p>'}</div>
+ <div class="card" style="margin-top:16px"><h3>Riwayat Verifikasi</h3>${tbl(['Kegiatan','Status','Catatan'],h.map(k=>`<tr><td>${k[0]}</td><td><span class="pill ${k[4]}">${k[3]}</span></td><td>${k[6]||'-'}</td></tr>`).join(''))}</div>`},
+s:()=>`<div class="g2"><div class="card"><h3>Susunan Panitia</h3>${tbl(['Nama','Jabatan','Divisi',''],P.map((p,i)=>`<tr><td>${p[0]}</td><td>${p[1]}</td><td><span class="pill p">${p[2]}</span></td><td><button class="sm x" onclick="P.splice(${i},1);tab('s')">Hapus</button></td></tr>`).join(''))}</div>
+<div class="card"><h3>Tambah Anggota</h3><label style="margin-top:0">Nama</label><input id="sn"><label>Jabatan</label><select id="sj"><option>Ketua Pelaksana</option><option>Sekretaris</option><option>Bendahara</option><option>Koordinator</option><option selected>Anggota</option></select><label>Divisi</label><select id="sd"><option>Inti</option><option>Acara</option><option>Publikasi</option><option>Konsumsi</option><option>Perlengkapan</option></select><button class="btn pri" id="ss">Tambah</button></div></div>`,
+u:()=>{const e=ed>=0?U[ed]:{u:'',n:'',r:'Anggota Panitia'};
+ return `<div class="g2"><div class="card"><h3>Daftar Pengguna (${U.length})</h3>${tbl(['Nama','Username','Peran','Status','Aksi'],U.map((x,i)=>`<tr><td>${x.n}</td><td>${x.u}</td><td><span class="pill p">${x.r}</span></td><td><span class="pill ${x.off?'w':''}">${x.off?'Nonaktif':'Aktif'}</span></td><td><div class="row" style="gap:6px"><button class="sm" onclick="ed=${i};tab('u')">Ubah</button><button class="sm ${x.off?'':'x'}" onclick="ut(${i})">${x.off?'Aktifkan':'Nonaktifkan'}</button></div></td></tr>`).join(''))}</div>
+<div class="card"><h3>${ed>=0?'Ubah Pengguna':'Tambah Pengguna'}</h3><label style="margin-top:0">Nama lengkap</label><input id="un1" value="${e.n}"><label>Username</label><input id="un2" autocomplete="off" value="${e.u}"><label>Kata sandi ${ed>=0?'baru':''}</label><input id="un3" type="text" placeholder="${ed>=0?'Kosongkan jika tidak diubah':'min. 6 karakter'}"><label>Peran</label><select id="un4" ${ed===0?'disabled':''}>${Object.keys(R).map(r=>`<option ${r===e.r?'selected':''}>${r}</option>`).join('')}</select><button class="btn pri" id="un5">${ed>=0?'Simpan Perubahan':'Tambah Pengguna'}</button>${ed>=0?`<button class="link" onclick="ed=-1;tab('u')">Batal</button>`:''}</div></div>`}};
+function vf(i,ok){const c=$('#c'+i).value.trim();if(!ok&&!c){toast('Isi catatan revisi dulu');return}K[i][3]=ok?'Disetujui':'Revisi';K[i][4]=ok?'':'p';K[i][6]=c;toast(ok?'Proposal disetujui':'Revisi dikirim ke ketua panitia');tab('v')}
+function rs(i){K[i][3]='Menunggu verifikasi';K[i][4]='w';toast('Proposal diajukan ulang');tab('p')}
+function ut(i){if(i===0){toast('Akun admin utama tidak bisa dinonaktifkan');return}if(U[i]===me){toast('Tidak bisa menonaktifkan akun sendiri');return}U[i].off=!U[i].off;toast(U[i].off?'Akun dinonaktifkan':'Akun diaktifkan');tab('u')}
+const H={p:()=>{$('#sp').onclick=()=>{const n=$('#pn').value.trim();if(!n||!$('#pd').value){toast('Lengkapi nama dan tanggal kegiatan');return}const f=$('#pf').files[0];K.push([n,$('#pd').value,$('#pl').value||'-','Menunggu verifikasi','w',0,'',f?f.name:'']);toast('Proposal berhasil diajukan');tab('p')}},
+s:()=>{$('#ss').onclick=()=>{const n=$('#sn').value.trim();if(!n){toast('Nama wajib diisi');return}P.push([n,$('#sj').value,$('#sd').value]);toast('Anggota ditambahkan');tab('s')}},
+u:()=>{$('#un5').onclick=()=>{const n=$('#un1').value.trim(),u=$('#un2').value.trim().toLowerCase(),p=$('#un3').value,r=$('#un4').value;
+ if(!n||!u||/\s/.test(u)){toast('Nama dan username wajib (tanpa spasi)');return}
+ if(U.some((x,i)=>x.u===u&&i!==ed)){toast('Username sudah dipakai');return}
+ if(ed<0){if(p.length<6){toast('Sandi minimal 6 karakter');return}U.push({u,n,r,p,off:false});toast('Pengguna ditambahkan')}
+ else{if(p&&p.length<6){toast('Sandi minimal 6 karakter');return}const x=U[ed];x.n=n;x.u=u;if(p)x.p=p;if(x.u!==undefined&&!$('#un4').disabled)x.r=r;if(x===me)who();ed=-1;toast('Perubahan disimpan')}
+ tab('u')}}};
+V.q=()=>`<div class="card"><h3>Ubah Username &amp; Sandi</h3><p class="who" style="margin-bottom:14px">Atur username dan sandi akun Admin, Ketua Panitia, Anggota Panitia, dan Pimpinan. Kosongkan sandi jika tidak ingin mengubahnya.</p>${Object.keys(R).map(r=>{const L=U.map((x,i)=>[x,i]).filter(a=>a[0].r===r);return L.length?`<div class="vc"><span class="pill p">${r}</span>${L.map(([x,i])=>`<div class="fg" style="margin-top:6px"><div><label>Username</label><input id="qu${i}" autocomplete="off" value="${x.u}"></div><div><label>Sandi baru</label><input id="qp${i}" type="text" autocomplete="off" placeholder="Kosongkan jika tidak diubah"></div><div class="f" style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px"><span class="note">${x.n}</span><button class="sm" data-q="${i}">Simpan</button></div></div>`).join("")}</div>`:""}).join("")}</div>`;
+H.q=()=>{document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{const i=+b.dataset.q,u=$('#qu'+i).value.trim().toLowerCase(),p=$('#qp'+i).value;
+ if(!u||/\s/.test(u)){toast('Username wajib diisi (tanpa spasi)');return}
+ if(U.some((x,j)=>x.u===u&&j!==i)){toast('Username sudah dipakai');return}
+ if(p&&p.length<6){toast('Sandi minimal 6 karakter');return}
+ U[i].u=u;if(p)U[i].p=p;toast('Akun '+U[i].r+' diperbarui');tab('q')})};
+const N={d:'Dashboard',k:'Kegiatan',p:'Pengajuan Proposal',v:'Verifikasi Proposal',s:'Susunan Panitia',u:'Daftar Pengguna',q:'Akun Pengguna',t:'Tugas',j:'Jadwal',a:'Anggaran'};
+function tab(t){sv();$('#body').innerHTML=V[t]();if(H[t])H[t]();$('#ttl').textContent=N[t];document.querySelectorAll('aside button[data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===t))}
+document.querySelectorAll('aside button[data-t]').forEach(b=>b.onclick=()=>{ed=-1;tab(b.dataset.t)});
+</script></body></html>
