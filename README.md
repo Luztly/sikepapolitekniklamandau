@@ -1,0 +1,3 @@
+SIKEPA
+
+SIKEPA singkatan dari “SISTEM INFORMASI KEGIATAN & KEPANITIAAN berbasis web
